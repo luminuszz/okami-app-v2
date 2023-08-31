@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "name": "okami-app-v2",
+    "slug": "okami-app-v2",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
