@@ -3,6 +3,8 @@ import {
   createNativeStackNavigator,
   type NativeStackScreenProps,
 } from "@react-navigation/native-stack";
+import HomePage from "@features/home/home.page";
+import UpdateChapterPage from "@features/home/updateChapter.page";
 
 export type AppRoutesParams = {
   Home: undefined;
@@ -19,15 +21,13 @@ export type AppRoutesParams = {
 export type AppRoute<Route extends keyof AppRoutesParams> =
   NativeStackScreenProps<AppRoutesParams, Route>;
 
-const { Navigator } = createNativeStackNavigator<AppRoutesParams>();
+const { Navigator, Screen } = createNativeStackNavigator<AppRoutesParams>();
 
 const screenOptions = { headerShown: false };
 
 export const AppRoutes = () => (
   <Navigator screenOptions={screenOptions} initialRouteName="Home">
-    {/* <Screen name="Home" component={HomePage} />
+    <Screen name="Home" component={HomePage} />
     <Screen name="UpdateChapter" component={UpdateChapterPage} />
-    <Screen name="UpdateWorkPage" component={UpdateWorkPage} />
-    <Screen name="MarkWorkFinishedPage" component={MarkWorkFinishedPage} /> */}
   </Navigator>
 );

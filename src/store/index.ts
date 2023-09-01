@@ -7,6 +7,7 @@ import {
   useSelector,
 } from "react-redux";
 import { authSlice } from "@features/auth/auth.slice";
+import homeSlice from "@features/home/home.slice";
 
 export const Store = configureStore({
   devTools: false,
@@ -18,6 +19,7 @@ export const Store = configureStore({
 
   reducer: {
     [okamiServer.reducerPath]: okamiServer.reducer,
+    home: homeSlice.reducer,
     auth: authSlice.reducer,
   },
 });
