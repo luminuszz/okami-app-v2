@@ -37,3 +37,7 @@ yarn-error.*
 # yarn
 .yarn/*
 .idea
+
+# Envs
+
+.env

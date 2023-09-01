@@ -3,13 +3,22 @@ import { LogLevel, OneSignal } from "react-native-onesignal";
 import { ONE_SIGNAL_APP_ID } from "@env";
 
 export const notificationService = async (): Promise<void> => {
-  OneSignal.initialize(ONE_SIGNAL_APP_ID);
+  let hasPermissions: boolean;
 
-  OneSignal.Debug.setLogLevel(LogLevel.Verbose);
+  if (ONE_SIGNAL_APP_ID) {
+    OneSignal.initialize(ONE_SIGNAL_APP_ID);
+    OneSignal.Debug.setLogLevel(LogLevel.Verbose);
 
-  await OneSignal.Notifications.requestPermission(true);
+    hasPermissions = OneSignal.Notifications.hasPermission();
 
-  OneSignal.Notifications.addEventListener("click", (event) => {
-    console.log("OneSignal: notification clicked:", event);
-  });
+    if (!hasPermissions) {
+      hasPermissions = await OneSignal.Notifications.requestPermission(true);
+    }
+
+    if (hasPermissions) {
+      OneSignal.Notifications.addEventListener("click", (event) => {
+        console.log("OneSignal: notification clicked:", event);
+      });
+    }
+  }
 };

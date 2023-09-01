@@ -3476,14 +3476,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-native-async-storage/async-storage@npm:^1.19.3":
-  version: 1.19.3
-  resolution: "@react-native-async-storage/async-storage@npm:1.19.3"
+"@react-native-async-storage/async-storage@npm:1.18.2":
+  version: 1.18.2
+  resolution: "@react-native-async-storage/async-storage@npm:1.18.2"
   dependencies:
     merge-options: ^3.0.4
   peerDependencies:
     react-native: ^0.0.0-0 || 0.60 - 0.72 || 1000.0.0
-  checksum: d849e5c8bb08d2130d95cc246749dae820cc1996b6b31defa063a1b67070524d72aed5a0e57ce2fafe3c3726712c09a5a3babaed1358182060ce7cfd8bd2c1a3
+  checksum: bdbcd2e4785a1348657302fa48f4073d980d3b3626fc2ea1e8ec3013825d0013a49d0805a3fd1e98c0b8b12eb1273ef03fb842686ce740d25331398deb2691c4
   languageName: node
   linkType: hard
 
@@ -4560,6 +4560,13 @@ __metadata:
   version: 0.0.29
   resolution: "@types/json5@npm:0.0.29"
   checksum: e60b153664572116dfea673c5bda7778dbff150498f44f998e34b5886d8afc47f16799280e4b6e241c0472aef1bc36add771c569c68fc5125fc2ae519a3eb9ac
+  languageName: node
+  linkType: hard
+
+"@types/lodash@npm:^4.14.197":
+  version: 4.14.197
+  resolution: "@types/lodash@npm:4.14.197"
+  checksum: 53d7567d1704de76cf33266c78062e0fd722d4b846e5b1417d0b6ef0ee41c0d9c451b92bc34f73d5f1fcc45c7d36511e92f6f47a9279b48157ba60a92ddaa078
   languageName: node
   linkType: hard
 
@@ -6156,6 +6163,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"cycle@npm:^1.0.3":
+  version: 1.0.3
+  resolution: "cycle@npm:1.0.3"
+  checksum: b9f131094fb832a8c4ba18c6d2dc9c87fc80d3242847a45f0a5f70911b2acab68abc1c25eb23e5155fcf2135a27d8fcc3635556745b03b488c4f360cfbc352df
+  languageName: node
+  linkType: hard
+
 "dag-map@npm:~1.0.0":
   version: 1.0.2
   resolution: "dag-map@npm:1.0.2"
@@ -6172,7 +6186,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dayjs@npm:^1.8.15":
+"dayjs@npm:^1.8.15, dayjs@npm:^1.8.29":
   version: 1.11.9
   resolution: "dayjs@npm:1.11.9"
   checksum: a4844d83dc87f921348bb9b1b93af851c51e6f71fa259604809cfe1b49d1230e6b0212dab44d1cb01994c096ad3a77ea1cf18fa55154da6efcc9d3610526ac38
@@ -9181,7 +9195,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lodash@npm:^4.17.13, lodash@npm:^4.17.4":
+"lodash@npm:^4.17.13, lodash@npm:^4.17.21, lodash@npm:^4.17.4":
   version: 4.17.21
   resolution: "lodash@npm:4.17.21"
   checksum: eb835a2e51d381e561e508ce932ea50a8e5a68f4ebdd771ea240d3048244a8d13658acbd502cd4829768c56f2e16bdd4340b9ea141297d472517b83868e677f7
@@ -10381,11 +10395,12 @@ __metadata:
     "@expo/vector-icons": ^13.0.0
     "@gluestack-ui/themed": ^0.1.11
     "@hookform/resolvers": ^3.3.1
-    "@react-native-async-storage/async-storage": ^1.19.3
+    "@react-native-async-storage/async-storage": 1.18.2
     "@react-navigation/native": ^6.1.7
     "@react-navigation/native-stack": ^6.9.13
     "@reduxjs/toolkit": ^1.9.5
     "@types/axios": ^0.14.0
+    "@types/lodash": ^4.14.197
     "@types/node": ^20.5.7
     "@types/react": ^18.2.21
     "@types/react-native": ^0.72.2
@@ -10403,15 +10418,18 @@ __metadata:
     expo: ~49.0.8
     expo-splash-screen: ~0.20.5
     expo-status-bar: ~1.6.0
+    lodash: ^4.17.21
     prettier: ^3.0.3
     react: 18.2.0
     react-hook-form: ^7.45.4
     react-native: 0.72.4
     react-native-dotenv: ^3.4.9
+    react-native-flipper: ^0.212.0
     react-native-onesignal: 5.0.0
-    react-native-safe-area-context: ^4.7.1
-    react-native-screens: ^3.25.0
+    react-native-safe-area-context: 4.6.3
+    react-native-screens: ~3.22.0
     react-redux: ^8.1.2
+    redux-flipper: ^2.0.2
     typescript: "*"
     zod: ^3.22.2
   languageName: unknown
@@ -11098,6 +11116,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-native-flipper@npm:^0.212.0":
+  version: 0.212.0
+  resolution: "react-native-flipper@npm:0.212.0"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-native: ">0.62.0"
+  checksum: 41841277b1760d19adc3eaf52e16241ab9050e83185cce394db5ab864480fb46fb9cd2f856ccb4d4762988c91b85a582d121403804aad31522af1a931c9dd89a
+  languageName: node
+  linkType: hard
+
 "react-native-onesignal@npm:5.0.0":
   version: 5.0.0
   resolution: "react-native-onesignal@npm:5.0.0"
@@ -11107,26 +11135,26 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native-safe-area-context@npm:^4.7.1":
-  version: 4.7.1
-  resolution: "react-native-safe-area-context@npm:4.7.1"
+"react-native-safe-area-context@npm:4.6.3":
+  version: 4.6.3
+  resolution: "react-native-safe-area-context@npm:4.6.3"
   peerDependencies:
     react: "*"
     react-native: "*"
-  checksum: 2a07c0b0751c9ceb435c7b107a881080d7b4142fca597ea4701894aeb7c2fec02eeaef094bc28f3d2eaed39f4fc8ef26764c156bf17af93407d723db5608e1e5
+  checksum: f304d22f3df981b7d01b8a983ef5ace161b5352dfd293ef5b525071e861856ff5eda8720eacf1bc1d5153add9e53d09ce59f8cbdd20b590718863b8bb38eeebf
   languageName: node
   linkType: hard
 
-"react-native-screens@npm:^3.25.0":
-  version: 3.25.0
-  resolution: "react-native-screens@npm:3.25.0"
+"react-native-screens@npm:~3.22.0":
+  version: 3.22.1
+  resolution: "react-native-screens@npm:3.22.1"
   dependencies:
     react-freeze: ^1.0.0
     warn-once: ^0.1.0
   peerDependencies:
     react: "*"
     react-native: "*"
-  checksum: 959e107091944ab1a01e8328f3094020f495f05c23509920922df1bf285942e9ed77e3769b560e1f3c47a9925a18ab4f66a56ff5817ef5f220735e30efe09401
+  checksum: 3b592ff31d9dfde5e2ce967f85f3ad17a94f4f3bee2248a3dad9ec791e7cda72a431f86b468b3b2a70ebeffb49b462f8162668a58fb9ddabb10b5a369816850d
   languageName: node
   linkType: hard
 
@@ -11325,6 +11353,20 @@ __metadata:
     source-map: ~0.6.1
     tslib: ^2.0.1
   checksum: 03cc7f57562238ba258d468be67bf7446ce7a707bc87a087891dad15afead46c36e9aaeedf2130e2ab5a465244a9c62bfd4127849761cf8f4085abe2f3e5f485
+  languageName: node
+  linkType: hard
+
+"redux-flipper@npm:^2.0.2":
+  version: 2.0.2
+  resolution: "redux-flipper@npm:2.0.2"
+  dependencies:
+    cycle: ^1.0.3
+    dayjs: ^1.8.29
+  peerDependencies:
+    react-native: ">=0.63.0"
+    react-native-flipper: ">=0.100.0"
+    redux: ^4
+  checksum: 6638e73f565d443bd8df3e65b0f6559b24aab9ccda747857238659c82e0978f0aa6f0fd9a554047f4824f0cf42c8d834f1efefbcf4295df466d7b9d7cda68a1c
   languageName: node
   linkType: hard
 

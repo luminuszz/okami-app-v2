@@ -1,15 +1,31 @@
 import { configureStore } from "@reduxjs/toolkit";
 import okamiServer from "@services/okami";
+import makeDebugger from "redux-flipper";
+import {
+  type TypedUseSelectorHook,
+  useDispatch,
+  useSelector,
+} from "react-redux";
+import { authSlice } from "@features/auth/auth.slice";
 
 export const Store = configureStore({
   devTools: false,
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(okamiServer.middleware),
+  middleware: (getDefaultMiddleware) => {
+    return getDefaultMiddleware()
+      .concat(okamiServer.middleware)
+      .concat(makeDebugger());
+  },
 
-  reducer: {},
+  reducer: {
+    [okamiServer.reducerPath]: okamiServer.reducer,
+    auth: authSlice.reducer,
+  },
 });
 
 export type RootState = ReturnType<typeof Store.getState>;
 export type AppDispatch = typeof Store.dispatch;
+
+export const useAppDispatch: () => AppDispatch = useDispatch;
+export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
 
 export default Store;

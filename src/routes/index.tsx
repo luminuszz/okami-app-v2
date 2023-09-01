@@ -1,9 +1,10 @@
 import React from "react";
-import { AppRoutes } from "@routes/app.routes";
 import { AuthRoutes } from "@routes/auth.routes";
+import { useAppSelector } from "@store/index";
+import { AppRoutes } from "@routes/app.routes";
 
 export default function Routes() {
-  const isLogged = true;
+  const isLogged = useAppSelector((state) => state.auth.token);
 
-  return isLogged ? <AppRoutes /> : <AuthRoutes />;
+  return <AuthRoutes />;
 }

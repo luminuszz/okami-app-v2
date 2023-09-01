@@ -8,16 +8,17 @@ import {
 } from "./types";
 import { OKAMI_API_URL } from "@env";
 import { map } from "lodash";
+import { type RootState } from "@store/index";
 
 const okamiServer = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: OKAMI_API_URL,
     prepareHeaders: (headers, { getState }) => {
-      /* const token = (getState() as RootState).auth.token;
+      const token = (getState() as RootState).auth.token;
       if (token) {
         headers.set("Authorization", `Bearer ${token}`);
       }
-      return headers; */
+      return headers;
     },
   }),
 
