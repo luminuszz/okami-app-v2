@@ -1,20 +1,34 @@
-import { Box } from "@gluestack-ui/themed";
+import { Box, Center, Heading } from "@gluestack-ui/themed";
 import { Card } from "./Card";
-import React, { useMemo } from "react";
+import React, { useCallback, useMemo } from "react";
 import { useAppSelector } from "@store/index";
 import { selectSearch } from "../home.slice";
-import { useNavigation } from "@react-navigation/native";
+import { useFocusEffect, useNavigation } from "@react-navigation/native";
 import { type AppRoutesParams } from "@routes/app.routes";
 import { type NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { useFetchAllWorksUnreadQuery } from "@services/okami";
 import { compareDesc } from "date-fns";
 import { FlatList } from "react-native";
 
+const EmptyList = () => (
+  <Box h="$full" mt="$10">
+    <Center flex={1}>
+      <Heading size="sm" color="$gray100">
+        Novas atualizações aparecerão aqui 📖...
+      </Heading>
+    </Center>
+  </Box>
+);
+
 export const WorkList: React.FC = () => {
   const navigation =
     useNavigation<NativeStackNavigationProp<AppRoutesParams>>();
 
-  const { data: works } = useFetchAllWorksUnreadQuery(null);
+  const {
+    data: works,
+    refetch,
+    isFetching,
+  } = useFetchAllWorksUnreadQuery(null);
 
   const search = useAppSelector(selectSearch);
 
@@ -24,12 +38,23 @@ export const WorkList: React.FC = () => {
         ?.filter((work) =>
           work.name.toLowerCase().includes(search.toLowerCase()),
         )
-        .sort((a, b) => compareDesc(a.updatedAt, b.updatedAt)),
+        .sort((a, b) =>
+          compareDesc(new Date(a.updatedAt), new Date(b.updatedAt)),
+        ),
     [works, search],
+  );
+
+  useFocusEffect(
+    useCallback(() => {
+      void refetch();
+    }, []),
   );
 
   return (
     <FlatList
+      ListEmptyComponent={<EmptyList />}
+      onRefresh={refetch}
+      refreshing={isFetching}
       style={{ marginBottom: 50, marginTop: 8 }}
       contentContainerStyle={{ paddingBottom: 80 }}
       showsVerticalScrollIndicator={false}

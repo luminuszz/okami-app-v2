@@ -33,16 +33,20 @@ export const Card: React.FC<CardProps> = ({
   onClickMarRead,
   onClickCard,
 }) => {
-  const atTime = formatDistance(parseISO(data.updatedAt), new Date(), {
-    addSuffix: true,
-    includeSeconds: true,
-    locale: ptBR,
-  });
+  const atTime = formatDistance(
+    parseISO(data.nextChapterUpdatedAt ?? data.updatedAt),
+    new Date(),
+    {
+      addSuffix: true,
+      includeSeconds: true,
+      locale: ptBR,
+    },
+  );
 
   const chapterMessage =
     data.category === WORK_CATEGORY.enum.ANIME
-      ? `Episódio ${data.chapter}`
-      : `Capítulo ${data.chapter}`;
+      ? `Novo Episódio ${data.nextChapter}`
+      : `Novo Capítulo ${data.nextChapter}`;
 
   return (
     <Box borderRadius="$3xl" position="relative">

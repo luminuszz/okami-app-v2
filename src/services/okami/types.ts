@@ -12,6 +12,8 @@ export const workSchema = z.object({
   imageUrl: z.string().url().nullable(),
   updatedAt: z.string(),
   category: WORK_CATEGORY,
+  nextChapterUpdatedAt: z.string().optional().nullable(),
+  nextChapter: z.number().optional().nullable(),
 });
 
 export const updateWorkSchema = z.object({
