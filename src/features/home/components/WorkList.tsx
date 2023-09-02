@@ -1,4 +1,4 @@
-import { Box, Center, Heading } from "@gluestack-ui/themed";
+import { Box, Center, Heading, Spinner } from "@gluestack-ui/themed";
 import { Card } from "./Card";
 import React, { useCallback, useMemo } from "react";
 import { useAppSelector } from "@store/index";
@@ -10,12 +10,16 @@ import { useFetchAllWorksUnreadQuery } from "@services/okami";
 import { compareDesc } from "date-fns";
 import { FlatList } from "react-native";
 
-const EmptyList = () => (
+const EmptyList = ({ isLoading }: { isLoading: boolean }) => (
   <Box h="$full" mt="$10">
     <Center flex={1}>
-      <Heading size="sm" color="$gray100">
-        Novas atualizações aparecerão aqui 📖...
-      </Heading>
+      {isLoading ? (
+        <Spinner size="large" color="$gray100" />
+      ) : (
+        <Heading size="sm" color="$gray100">
+          Novas atualizações aparecerão aqui 📖...
+        </Heading>
+      )}
     </Center>
   </Box>
 );
@@ -52,7 +56,7 @@ export const WorkList: React.FC = () => {
 
   return (
     <FlatList
-      ListEmptyComponent={<EmptyList />}
+      ListEmptyComponent={<EmptyList isLoading={isFetching} />}
       onRefresh={refetch}
       refreshing={isFetching}
       style={{ marginBottom: 50, marginTop: 8 }}

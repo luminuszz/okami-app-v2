@@ -6177,6 +6177,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"date-fns-tz@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "date-fns-tz@npm:2.0.0"
+  peerDependencies:
+    date-fns: ">=2.0.0"
+  checksum: a6553603a9d26dd9669326c99a58a2335ac550bc060c74b86a5ad9e1de73c9d4e3e5236f0f552f990e616e4e8dcc2b6a637913a04d2e04396e6a9f8ae83c73da
+  languageName: node
+  linkType: hard
+
 "date-fns@npm:^2.30.0":
   version: 2.30.0
   resolution: "date-fns@npm:2.30.0"
@@ -7117,6 +7126,17 @@ __metadata:
   peerDependencies:
     expo: "*"
   checksum: 21a17de233bf0401cca64a22275f089557f99248896f29d262b22545199c7d4e816bc9be6b7d547046706db700d9ac3e648a2ca764a9ced4a0739583106fd7ea
+  languageName: node
+  linkType: hard
+
+"expo-localization@npm:~14.3.0":
+  version: 14.3.0
+  resolution: "expo-localization@npm:14.3.0"
+  dependencies:
+    rtl-detect: ^1.0.2
+  peerDependencies:
+    expo: "*"
+  checksum: 0e1f72156a17c8a14e500e13f4025b820f28575c671b2cc34e4af5470584e990212e1ce12aba79bb38a501b02c7e8c220ee3b6974566f145586f5fe6aef4ce42
   languageName: node
   linkType: hard
 
@@ -10408,6 +10428,7 @@ __metadata:
     axios: ^1.5.0
     babel-plugin-module-resolver: ^5.0.0
     date-fns: ^2.30.0
+    date-fns-tz: ^2.0.0
     eslint: ^8.0.1
     eslint-config-prettier: ^9.0.0
     eslint-config-standard-with-typescript: latest
@@ -10416,6 +10437,7 @@ __metadata:
     eslint-plugin-promise: ^6.0.0
     eslint-plugin-react: latest
     expo: ~49.0.8
+    expo-localization: ~14.3.0
     expo-splash-screen: ~0.20.5
     expo-status-bar: ~1.6.0
     lodash: ^4.17.21
@@ -11696,6 +11718,13 @@ __metadata:
   bin:
     rimraf: ./bin.js
   checksum: 3ea587b981a19016297edb96d1ffe48af7e6af69660e3b371dbfc73722a73a0b0e9be5c88089fbeeb866c389c1098e07f64929c7414290504b855f54f901ab10
+  languageName: node
+  linkType: hard
+
+"rtl-detect@npm:^1.0.2":
+  version: 1.0.4
+  resolution: "rtl-detect@npm:1.0.4"
+  checksum: d562535baa0db62f57f0a1d4676297bff72fd6b94e88f0f0900d5c3e810ab512c5c4cadffd3e05fbe8d9c74310c919afa3ea8c1001c244e5555e8eef12d02d6f
   languageName: node
   linkType: hard
 

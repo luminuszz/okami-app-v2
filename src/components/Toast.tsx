@@ -11,10 +11,10 @@ interface BaseToastProps {
 }
 
 const toastVariants: ToastVariant = {
-  error: "red.500",
-  info: "blue.500",
-  success: "emerald.500",
-  warning: "amber.500",
+  error: "$red500",
+  info: "$blue500",
+  success: "$emerald500",
+  warning: "$amber500",
 };
 
 interface UseToastType {
@@ -26,7 +26,7 @@ const BaseToast: React.FC<BaseToastProps> = ({ message, type }) => {
 
   return (
     <Box bg={colorVariant} px="$2" py="$1" rounded="$lg" mb={5}>
-      <Text color="gray.100">{message}</Text>
+      <Text color="$gray100">{message}</Text>
     </Box>
   );
 };

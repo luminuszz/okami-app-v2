@@ -6,6 +6,7 @@ import { useAppToast } from "@components/Toast";
 
 export const RefreshWorksButton: React.FC = () => {
   const toast = useAppToast();
+
   const [refreshWorks, { isLoading: isRefreshingWorks, isSuccess }] =
     useLazyRefreshWorksQuery();
 

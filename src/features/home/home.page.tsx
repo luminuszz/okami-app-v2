@@ -1,12 +1,13 @@
 import React, { useEffect } from "react";
 
 import Container from "../../components/Container";
-import { Box } from "@gluestack-ui/themed";
+import { VStack } from "@gluestack-ui/themed";
 import { useAppDispatch } from "@store/index";
 import { homeActions } from "./home.slice";
 import { type AppRoute } from "@routes/app.routes";
 import { WorkList } from "./components/WorkList";
 import { Navbar } from "@components/Navbar";
+import { SearchBar } from "@features/home/components/SearchBar";
 
 interface Props extends AppRoute<"Home"> {}
 
@@ -24,9 +25,11 @@ const HomePage: React.FC<Props> = () => {
   return (
     <Container>
       <Navbar />
-      <Box px="$2">
+
+      <VStack space="xl" mt="$10">
+        <SearchBar />
         <WorkList />
-      </Box>
+      </VStack>
     </Container>
   );
 };

@@ -13,15 +13,28 @@ import {
 } from "@gluestack-ui/themed";
 import { useGetCurrentUserQuery } from "@services/okami";
 import { useNavigation } from "@react-navigation/native";
-
+import { getCalendars } from "expo-localization";
 import { MaterialIcons } from "@expo/vector-icons";
+import { getHours } from "date-fns";
+import { utcToZonedTime } from "date-fns-tz";
+
+const currentTimezone = getCalendars()?.[0]?.timeZone ?? "";
 
 export const Navbar: React.FC = () => {
   const { navigate } = useNavigation<any>();
 
-  const { data } = useGetCurrentUserQuery(null);
+  const currentHour = getHours(utcToZonedTime(new Date(), currentTimezone));
 
-  const avatarName = data?.name?.slice(0, 2)?.toUpperCase() ?? "";
+  const { data: user } = useGetCurrentUserQuery(null);
+
+  const avatarName = user?.name?.slice(0, 2)?.toUpperCase() ?? "";
+
+  const subTitle =
+    currentHour >= 12
+      ? "Boa tarde"
+      : currentHour >= 18
+      ? "Boa noite"
+      : "Bom dia";
 
   return (
     <Box px="$2" py="$2">
@@ -33,13 +46,13 @@ export const Navbar: React.FC = () => {
         <HStack alignItems="center" space="md">
           <Avatar borderRadius="$full">
             <AvatarFallbackText>{avatarName}</AvatarFallbackText>
-            <AvatarImage source={{ uri: data?.avatarImageUrl ?? "" }} />
+            <AvatarImage source={{ uri: user?.avatarImageUrl ?? "" }} />
             <AvatarBadge />
           </Avatar>
 
           <VStack>
             <Text color="$gray200" fontWeight="bold">
-              Bom dia
+              {subTitle}
             </Text>
             <Text fontSize="$md" color="$gray100" fontWeight="bold">
               Davi Ribeiro

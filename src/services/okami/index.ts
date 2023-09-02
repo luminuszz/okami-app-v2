@@ -43,7 +43,7 @@ const okamiServer = createApi({
 
     markWorkRead: builder.mutation<unknown, { id: string; chapter: number }>({
       query: ({ id, chapter }) => ({
-        url: `/work/${id}/update-chapater`,
+        url: `/work/${id}/update-chapter`,
         body: {
           chapter,
         },
@@ -70,7 +70,7 @@ const okamiServer = createApi({
       },
     }),
 
-    updateWork: builder.mutation<void, UpdateWorkInput>({
+    updateWork: builder.mutation<unknown, UpdateWorkInput>({
       query: ({ id, data }) => ({
         url: "/work/update-work",
         method: "PUT",
